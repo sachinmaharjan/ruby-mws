@@ -168,6 +168,7 @@ module MWS
                     xml.Width(:unitOfMeasure => entry_hash[:unit_of_measure]) { xml.text(entry_hash[:package_width]) }
                     xml.Height(:unitOfMeasure => entry_hash[:unit_of_measure]) { xml.text(entry_hash[:package_height]) }
                   }
+                  xml.Pages entry_hash[:pages]
                   xml.MSRP(:currency => entry_hash[:currency]){ xml.text(entry_hash[:standard_price]) }
                   xml.Manufacturer entry_hash[:manufacturer]
                   entry_hash[:search_terms][:taggings].each do |search_term|

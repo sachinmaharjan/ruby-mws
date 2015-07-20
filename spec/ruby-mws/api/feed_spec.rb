@@ -467,6 +467,8 @@ describe MWS::API::Feed do
           body_doc.css('AmazonEnvelope Message Product DescriptionData PackageDimensions Length').first.attributes["unitOfMeasure"].value.should == "IN"
           body_doc.css('AmazonEnvelope Message Product ProductData Books ProductType Author')[0].text.should == "J. R. R. Tolkien"
           body_doc.css('AmazonEnvelope Message Product ProductData Books ProductType Binding')[0].text.should == "Hardcover"
+          body_doc.css('AmazonEnvelope Message Product DescriptionData Pages')[0].text.should == "100"
+          body_doc.css('AmazonEnvelope Message Product DescriptionData Pages')[1].text.should == "111"
         end
         response = mws.feeds.submit_feed(MWS::API::Feed::PRODUCT_LIST, product_hash_list)
       end
